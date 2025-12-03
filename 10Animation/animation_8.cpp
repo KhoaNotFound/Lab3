@@ -21,5 +21,4 @@ void animation_8()
         }
         right --;
     }
-    
 }

@@ -9,6 +9,10 @@ void setup()
 
 void displayOnClock(int num)
 {
+    if (num == 0)
+    {
+        num = 12;
+    }
     if (num >= 1 && num <= 12)
     {
         digitalWrite(num - 1,HIGH);
@@ -21,12 +25,15 @@ void clearClock()
         digitalWrite(i, LOW);
     }
 }
+int check = 0;
 void loop()
 {
-    for (int i = 1 ; i <= 12; i++)
+    check ++;
+    if (check == 12)
     {
-        displayOnClock(i);
-        delay(200);
-        clearClock();
+        check = 0;
     }
+    clearClock();
+    displayOnClock(check);
+    delay(200);
 }
